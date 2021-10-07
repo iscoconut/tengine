@@ -50,9 +50,9 @@ After=syslog.target network.target remote-fs.target nss-lookup.target
 Type=forking
 PIDFile=/usr/local/nginx/logs/nginx.pid
 ExecStartPre=/usr/local/nginx/sbin/nginx -t
-ExecStart=/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
+ExecStart=/usr/local/nginx/sbin/nginx
 ExecReload=/usr/local/nginx/sbin/nginx -s reload
-ExecStop=/bin/kill -s QUIT $MAINPID
+ExecStop=/usr/local/nginx/sbin/nginx -s stop
 PrivateTmp=true
  
 [Install]
